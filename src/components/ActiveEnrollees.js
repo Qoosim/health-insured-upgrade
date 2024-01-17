@@ -17,7 +17,7 @@ const ActiveEnrollees = () => {
               <>
                 <tr key={index}>
                   {Object.entries(item).map(([property, value]) => (
-                    <td key={property}>{value}</td>
+                    <td key={property} className='truncate border border-gray-400 w-40'>{value}</td>
                   ))}
                 </tr>
               </>
