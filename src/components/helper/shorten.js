@@ -1,0 +1,1 @@
+export const shorten = (str) => `${str.slice(0, 12)}...`

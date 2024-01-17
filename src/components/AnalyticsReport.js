@@ -13,6 +13,9 @@ import SelectedItem from './SelectedItem';
 const AnalyticsReport = () => {
   const [selected, setSelected] = useState(undefined);
   const [open, setOpen] = useState(false);
+  const [isActive, setIsActive] = useState(false)
+
+  const activeItemStyle = isActive ? "text-custom-white" : "text-custom-left-panel";
 
   const item = selected ? (
     <SelectedItem selected={selected} />
