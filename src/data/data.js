@@ -255,3 +255,40 @@ export const tableInfo = [
     maritalStatus: "Married"
   }
 ]
+
+export const paymentHeader = [
+  "PaymentID",
+  "Customer Name",
+  "Email Address",
+  "Policy ID",
+  "Policy Name",
+  "H.M.O",
+  "Care Provider",
+  "Date of Payment",
+  "Status"
+]
+
+export const paymentData = [
+  {
+    paymentId: "9506003541",
+    customerName: "Ekpo Theresa",
+    email:"astilleros4ever@yahoo.com",
+    policyId: "091878ADSF",
+    policyName: "Health Insurance",
+    hmo: "Bastion",
+    careProvider: "ST. MARTINS HOSPITAL",
+    dateOfPayment: "08/04/2023",
+    status: "Successful"
+  },
+  {
+    paymentId: "9506003541",
+    customerName: "Ekpo Theresa",
+    email:"astilleros4ever@yahoo.com",
+    policyId: "091878ADSF",
+    policyName: "Health Insurance",
+    hmo: "Bastion",
+    careProvider: "ST. MARTINS HOSPITAL",
+    dateOfPayment: "08/04/2023",
+    status: "Successful"
+  },
+]
