@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 
 const manrope = Manrope({ subsets: ['latin'] })
 
-const page = () => {
+const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter()
   const [ formData, setFormData] = useState({})
@@ -63,4 +63,4 @@ const page = () => {
   )
 }
 
-export default page
+export default LoginPage
