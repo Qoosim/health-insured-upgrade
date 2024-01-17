@@ -13,11 +13,15 @@ const ActiveEnrollees = () => {
         </thead>
         <tbody>
           {tableInfo.map((item, index) => {
-            <tr key={index}>
-              {Object.entries(item).map(([property, value]) =>
-                <td key={property}>{value}</td>
-              )}
-            </tr>
+            return (
+              <>
+                <tr key={index}>
+                  {Object.entries(item).map(([property, value]) => (
+                    <td key={property}>{value}</td>
+                  ))}
+                </tr>
+              </>
+            )
           })}
         </tbody>
       </table>
