@@ -6,8 +6,8 @@ import { useState } from 'react';
 import ArrowDown from '../../public/assets/arrow-down.svg';
 import ExportIcon from '../../public/assets/export-icon.svg';
 import FilterImage from '../../public/assets/filter-list.svg';
-import SelectedItem from './SelectedItem';
 import ActiveEnrollees from './ActiveEnrollees';
+import SelectedItem from './SelectedItem';
 
 
 const AnalyticsReport = () => {
@@ -75,37 +75,37 @@ const AnalyticsReport = () => {
         <div>
           <ul className='flex gap-6'>
             <li
-              className='bg-[#1AA3A10D] p-3 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 px-5'
+              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
             >
               Active Enrollees
             </li>
             <li
-              className='bg-[#1AA3A10D] p-3 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 px-5'
+              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
             >
               Inactive Enrollees
             </li>
             <li
-              className='bg-[#1AA3A10D] p-3 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 px-5'
+              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
             >
               Corporates
             </li>
             <li
-              className='bg-[#1AA3A10D] p-3 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 px-5'
+              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
             >
               Family
             </li>
             <li
-              className='bg-[#1AA3A10D] p-3 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 px-5'
+              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
             >
               Agency
             </li>
             <li
-              className='bg-[#1AA3A10D] p-3 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 px-5'
+              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
             >
               Payment
             </li>
           </ul>
-        </div>    
+        </div>
         <ActiveEnrollees />
       </section>
     </main>

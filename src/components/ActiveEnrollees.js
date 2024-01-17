@@ -12,7 +12,7 @@ const ActiveEnrollees = () => {
           </tr>
         </thead>
         <tbody>
-          {tableInfo.map((item, index) => {
+          {tableInfo?.map((item, index) => {
             return (
               <>
                 <tr key={index}>
