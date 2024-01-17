@@ -17,7 +17,7 @@ const Sidebar = ({ children }) => {
         <div className='flex flex-col justify-between h-full'>
           <div>
 
-            <div className='flex justify-center items-center gap-2 my-7 border-b pb-8'>
+            <Link href="/" className='flex justify-center items-center gap-2 my-7 border-b pb-8'>
               <Image
                 src={Logo}
                 width={50}
@@ -25,7 +25,7 @@ const Sidebar = ({ children }) => {
                 alt="Logo"
               />
               <span>Skydd</span>
-            </div>
+            </Link>
             <div className='flex flex-col gap-6'>
               <Link href="/dashboard">
                 <div className="flex gap-2 items-center">
