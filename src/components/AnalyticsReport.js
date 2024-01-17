@@ -4,10 +4,8 @@ import { menuList } from '@/data/data';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import AnalyticsNotActive from '../../public/assets/analytics-not-active.svg';
 import ArrowDown from '../../public/assets/arrow-down.svg';
 import CloseBtn from '../../public/assets/btn.png';
-import DashboardNotActive from '../../public/assets/dashboard-not-active.svg';
 import ExportIcon from '../../public/assets/export-icon.svg';
 import FilterImage from '../../public/assets/filter-list.svg';
 import HamburgerIcon from '../../public/assets/hamburger_icon.png';
@@ -29,9 +27,7 @@ const AnalyticsReport = () => {
     <h4 className="lg:text-md text-xs md:text-sm">All time</h4>
   );
 
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev)
-  }
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev)
 
   return (
     <main className='py-8'>

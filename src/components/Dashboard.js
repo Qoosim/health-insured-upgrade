@@ -1,17 +1,23 @@
 'use client'
 
-import { menuList } from '@/data/data';
+import { cardData, menuList } from '@/data/data';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import ArrowDown from '../../public/assets/arrow-down.svg';
 import FilterImage from '../../public/assets/filter-list.svg';
-import SelectedItem from './SelectedItem';
 import CardInfo from './CardInfo';
-import { cardData } from '@/data/data';
+import SelectedItem from './SelectedItem';
+import CloseBtn from '../../public/assets/btn.png';
+import HamburgerIcon from '../../public/assets/hamburger_icon.png';
 
 const Dashboard = () => {
   const [selected, setSelected] = useState(undefined);
   const [open, setOpen] = useState(false);
+  const [isActive, setIsActive] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const activeItemStyle = isActive ? "text-custom-white" : "text-custom-left-panel";
 
   const item = selected ? (
     <SelectedItem selected={selected} />
@@ -19,9 +25,54 @@ const Dashboard = () => {
     <h4 className="lg:text-md text-xs md:text-sm">All time</h4>
   );
 
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev)
+
   return (
     <main className='py-8'>
-      <h1 className='border-b w-full pb-6 pl-10 text-2xl font-semibold'>Dashboard</h1>
+      <div className="flex justify-between items-center ">
+        <h1 className='border-b w-full pb-6 pl-10 text-2xl font-semibold'>Dashboard</h1>
+        <div className="flex justify-end p-4">
+          {isMenuOpen ? (
+            <Image
+              src={CloseBtn}
+              width={40}
+              height={40}
+              alt='Close Icon'
+              className='sm:hidden absolute top-7 right-6 text-slate-300 z-50'
+              onClick={toggleMenu}
+            />
+          ) : (
+            <Image
+              src={HamburgerIcon}
+              width={30}
+              height={30}
+              alt='Hamburger Icon'
+              className='sm:hidden absolute top-7 right-6'
+              onClick={toggleMenu}
+            />
+          )}
+        </div>
+      </div>
+      {isMenuOpen && (
+        <nav className='fixed inset-0 bg-gray-900 bg-opacity-85 z-40'>
+          <ul className={`${isMenuOpen ? "flex flex-col mt-24 ml-8 gap-5 h-screen" : "hidden"}`}>
+            <li>
+              <Link href="/dashboard">
+                <div className="flex gap-2 items-center">
+                  <span className='text-2xl text-slate-300 font-semibold'>Dashboard</span>
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link href="/analytics">
+                <div className="flex gap-2 items-center">
+                  <span className='text-2xl text-slate-300 font-semibold'>Analytics & Report</span>
+                </div>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      )}
       <section className="flex flex-col md:flex-row justify-between items-center px-4 md:px-10 py-6">
         <h3 className='text-xl font-semibold mb-4 md:mb-0'>An Overview</h3>
         <div className="flex flex-col md:flex-row items-center gap-4 relative">

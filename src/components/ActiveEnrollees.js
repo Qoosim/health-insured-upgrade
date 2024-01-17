@@ -7,8 +7,8 @@ const ActiveEnrollees = () => {
       <table className='table-fixed my-5 border-separate border-spacing-y-2 border-spacing-x-0.5'>
         <thead className='mb-4'>
           <tr className='text-xs'>
-            {tableHeader?.map((item, index) => (
-              <th scope='col' key={index} className='p-2 !w-1/2 shrink-0 border border-gray-600 mx-1 min-w-40'>{item}</th>
+            {tableHeader?.map((item) => (
+              <th scope='col' key={item} className='p-2 !w-1/2 shrink-0 border border-gray-600 mx-1 min-w-40'>{item}</th>
             ))}
           </tr>
         </thead>
