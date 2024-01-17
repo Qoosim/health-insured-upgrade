@@ -13,7 +13,7 @@ const manrope = Manrope({ subsets: ['latin'] })
 const Sidebar = ({ children }) => {
   return (
     <section className={`flex ${manrope.className}`}>
-      <div className='fixed w-64 h-full p-8 bg-[#F9F9F9]'>
+      <div className='fixed hidden sm:block w-64 h-full p-8 bg-[#F9F9F9]'>
         <div className='flex flex-col justify-between h-full'>
           <div>
 
@@ -68,7 +68,7 @@ const Sidebar = ({ children }) => {
           </div>
         </div>
       </div>
-      <main className='ml-64 w-full'>
+      <main className='sm:ml-64 w-full ml-0'>
         {children}
       </main>
     </section>

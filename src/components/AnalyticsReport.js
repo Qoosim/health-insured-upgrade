@@ -2,10 +2,14 @@
 
 import { menuList } from '@/data/data';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
+import AnalyticsNotActive from '../../public/assets/analytics-not-active.svg';
 import ArrowDown from '../../public/assets/arrow-down.svg';
+import DashboardNotActive from '../../public/assets/dashboard-not-active.svg';
 import ExportIcon from '../../public/assets/export-icon.svg';
 import FilterImage from '../../public/assets/filter-list.svg';
+import HamburgerIcon from '../../public/assets/hamburger_icon.png';
 import ActiveEnrollees from './ActiveEnrollees';
 import SelectedItem from './SelectedItem';
 
@@ -14,6 +18,7 @@ const AnalyticsReport = () => {
   const [selected, setSelected] = useState(undefined);
   const [open, setOpen] = useState(false);
   const [isActive, setIsActive] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const activeItemStyle = isActive ? "text-custom-white" : "text-custom-left-panel";
 
@@ -25,7 +30,48 @@ const AnalyticsReport = () => {
 
   return (
     <main className='py-8'>
-      <h1 className='border-b w-full pb-6 pl-10 text-2xl font-semibold'>Report</h1>
+      <div className='flex justify-between items-center'>
+        <h1 className='border-b w-full pb-6 pl-6 sm:pl-10 text-2xl font-semibold'>Report</h1>
+        <Image
+          src={HamburgerIcon}
+          width={30}
+          height={30}
+          alt='Hamburger Icon'
+          className='sm:hidden absolute top-7 right-6'
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        />
+      </div>
+      <nav>
+        <ul className={`${isMenuOpen ? "block" : "hidden"} fixed inset-0 bg-gray-800 bg-opacity-75 z-50`}>
+          <li>
+            <Link href="/dashboard">
+              <div className="flex gap-2 items-center">
+                <Image
+                  src={DashboardNotActive}
+                  width={30}
+                  height={30}
+                  alt='Dashboard Logo Link'
+                  className='text-[#4C5360] bg-transparent'
+                />
+                <span className='text-md'>Dashboard</span>
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link href="/analytics">
+              <div className="flex gap-2 items-center">
+                <Image
+                  src={AnalyticsNotActive}
+                  width={30}
+                  height={30}
+                  alt='Analytics Logo Link'
+                />
+                <span className='text-md'>Analytics & Report</span>
+              </div>
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <section className="flex flex-col md:flex-row justify-between items-center px-4 md:px-10 py-6">
         <h3 className='text-xl font-semibold mb-4 md:mb-0'>Active Enrollees</h3>
         <div className="flex flex-col md:flex-row items-center gap-4 relative">
