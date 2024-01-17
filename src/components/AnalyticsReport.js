@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import AnalyticsNotActive from '../../public/assets/analytics-not-active.svg';
 import ArrowDown from '../../public/assets/arrow-down.svg';
+import CloseBtn from '../../public/assets/btn.png';
 import DashboardNotActive from '../../public/assets/dashboard-not-active.svg';
 import ExportIcon from '../../public/assets/export-icon.svg';
 import FilterImage from '../../public/assets/filter-list.svg';
@@ -28,50 +29,56 @@ const AnalyticsReport = () => {
     <h4 className="lg:text-md text-xs md:text-sm">All time</h4>
   );
 
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev)
+  }
+
   return (
     <main className='py-8'>
       <div className='flex justify-between items-center'>
         <h1 className='border-b w-full pb-6 pl-6 sm:pl-10 text-2xl font-semibold'>Report</h1>
-        <Image
-          src={HamburgerIcon}
-          width={30}
-          height={30}
-          alt='Hamburger Icon'
-          className='sm:hidden absolute top-7 right-6'
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        />
+        <div className="flex justify-end p-4">
+          {isMenuOpen ? (
+            <Image
+              src={CloseBtn}
+              width={40}
+              height={40}
+              alt='Close Icon'
+              className='sm:hidden absolute top-7 right-6 text-slate-300 z-50'
+              onClick={toggleMenu}
+            />
+          ) : (
+            <Image
+              src={HamburgerIcon}
+              width={30}
+              height={30}
+              alt='Hamburger Icon'
+              className='sm:hidden absolute top-7 right-6'
+              onClick={toggleMenu}
+            />
+          )}
+        </div>
       </div>
-      <nav>
-        <ul className={`${isMenuOpen ? "block" : "hidden"} fixed inset-0 bg-gray-800 bg-opacity-75 z-50`}>
-          <li>
-            <Link href="/dashboard">
-              <div className="flex gap-2 items-center">
-                <Image
-                  src={DashboardNotActive}
-                  width={30}
-                  height={30}
-                  alt='Dashboard Logo Link'
-                  className='text-[#4C5360] bg-transparent'
-                />
-                <span className='text-md'>Dashboard</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link href="/analytics">
-              <div className="flex gap-2 items-center">
-                <Image
-                  src={AnalyticsNotActive}
-                  width={30}
-                  height={30}
-                  alt='Analytics Logo Link'
-                />
-                <span className='text-md'>Analytics & Report</span>
-              </div>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      {isMenuOpen && (
+        <nav className='fixed inset-0 bg-gray-900 bg-opacity-85 z-40'>
+          <ul className={`${isMenuOpen ? "flex flex-col mt-24 ml-8 gap-5 h-screen" : "hidden"}`}>
+            <li>
+              <Link href="/dashboard">
+                <div className="flex gap-2 items-center">
+                  <span className='text-2xl text-slate-300 font-semibold'>Dashboard</span>
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link href="/analytics">
+                <div className="flex gap-2 items-center">
+                  <span className='text-2xl text-slate-300 font-semibold'>Analytics & Report</span>
+                </div>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      )}
       <section className="flex flex-col md:flex-row justify-between items-center px-4 md:px-10 py-6">
         <h3 className='text-xl font-semibold mb-4 md:mb-0'>Active Enrollees</h3>
         <div className="flex flex-col md:flex-row items-center gap-4 relative">
