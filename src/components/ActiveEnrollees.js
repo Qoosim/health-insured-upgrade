@@ -1,5 +1,4 @@
-import { tableHeader } from '@/data/data';
-import { tableInfo } from '@/data/data';
+import { tableHeader, tableInfo } from '@/data/data';
 
 const ActiveEnrollees = () => {
   return (
@@ -13,11 +12,13 @@ const ActiveEnrollees = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-             {tableInfo.map((item) => {
-              <th>{item}</th>
-             })} 
-          </tr>
+          {tableInfo.map((item, index) => {
+            <tr key={index}>
+              {Object.entries(item).map(([property, value]) =>
+                <td key={property}>{value}</td>
+              )}
+            </tr>
+          })}
         </tbody>
       </table>
     </div>
