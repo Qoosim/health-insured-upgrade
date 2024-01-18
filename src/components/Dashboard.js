@@ -31,7 +31,7 @@ const Dashboard = () => {
     <main className='py-8'>
       <div className="flex justify-between items-center ">
         <h1 className='border-b w-full pb-6 pl-10 text-2xl font-semibold'>Dashboard</h1>
-        <div className="flex justify-end p-4">
+        <div className="flex justify-end p-4" onClick={toggleMenu}>
           {isMenuOpen ? (
             <Image
               src={CloseBtn}
@@ -39,7 +39,7 @@ const Dashboard = () => {
               height={40}
               alt='Close Icon'
               className='sm:hidden absolute top-7 right-6 text-slate-300 z-50'
-              onClick={toggleMenu}
+              // onClick={toggleMenu}
             />
           ) : (
             <Image
@@ -48,7 +48,7 @@ const Dashboard = () => {
               height={30}
               alt='Hamburger Icon'
               className='sm:hidden absolute top-7 right-6'
-              onClick={toggleMenu}
+              // onClick={toggleMenu}
             />
           )}
         </div>
@@ -90,8 +90,8 @@ const Dashboard = () => {
               <Image src={ArrowDown} alt="Dropdown Icon" />
             </button>
             <ul className={`${open ? "block absolute top-full left-0" : "hidden"}`}>
-              {menuList.map((menuItem) => (
-                <li key={menuItem.text}>
+              {menuList.map((menuItem, index) => (
+                <li key={index}>
                   <button
                     type="button"
                     onClick={() => {

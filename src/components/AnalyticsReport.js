@@ -1,6 +1,6 @@
 'use client'
 
-import { menuList } from '@/data/data';
+import { menuList, tabTexts } from '@/data/data';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -10,6 +10,7 @@ import ExportIcon from '../../public/assets/export-icon.svg';
 import FilterImage from '../../public/assets/filter-list.svg';
 import HamburgerIcon from '../../public/assets/hamburger_icon.png';
 import ActiveEnrollees from './ActiveEnrollees';
+import Payment from './Payment';
 import SelectedItem from './SelectedItem';
 
 
@@ -18,6 +19,18 @@ const AnalyticsReport = () => {
   const [open, setOpen] = useState(false);
   const [isActive, setIsActive] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [toggle, setToggle] = useState(false)
+  const [index, setIndex] = useState(0)
+
+  const tabs = [
+    <ActiveEnrollees />,
+    <Payment />
+  ]
+
+  const handleTabClick = (clickIndex) => {
+    setIndex(clickIndex)
+    setToggle(true)
+  }
 
   const activeItemStyle = isActive ? "text-custom-white" : "text-custom-left-panel";
 
@@ -126,39 +139,19 @@ const AnalyticsReport = () => {
       <section className='px-4 md:px-10'>
         <div>
           <ul className='flex gap-6'>
-            <li
-              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
-            >
-              Active Enrollees
-            </li>
-            <li
-              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
-            >
-              Inactive Enrollees
-            </li>
-            <li
-              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
-            >
-              Corporates
-            </li>
-            <li
-              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
-            >
-              Family
-            </li>
-            <li
-              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
-            >
-              Agency
-            </li>
-            <li
-              className='bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer active:outline active:outline-1 active:outline-green-500 flex justify-center items-center'
-            >
-              Payment
-            </li>
+            {tabTexts?.map((tabItem, tabIndex) => (
+              <li
+                key={tabIndex}
+                className={`${index === tabIndex ? 'bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer outline outline-1 outline-green-500 flex justify-center items-center' : 'bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer flex justify-center items-center'
+                  }`}
+                onClick={() => handleTabClick(tabIndex)}
+              >
+                {tabItem}
+              </li>
+            ))}
           </ul>
         </div>
-        <ActiveEnrollees />
+        {tabs[index]}
       </section>
     </main>
   );

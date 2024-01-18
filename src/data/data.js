@@ -292,3 +292,12 @@ export const paymentData = [
     status: "Successful"
   },
 ]
+
+export const tabTexts = [
+  "Active Enrollees",
+  "Inactive Enrollees",
+  " Corporates",
+  " Family",
+  "Agency",
+  "Payment"
+]
