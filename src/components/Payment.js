@@ -1,5 +1,5 @@
-import { paymentHeader, paymentData } from "@/data/data"
-import { shorten } from "./helper/shorten"
+import { paymentData, paymentHeader } from "@/data/data";
+import { shorten } from "./helper/shorten";
 
 const Payment = () => {
   return (
@@ -14,11 +14,12 @@ const Payment = () => {
         </thead>
         <tbody className='mt-8'>
           {paymentData?.map((item, index) => {
+            const lastKeyValuePair = Object.entries(item)[Object.entries(item).length - 1];
             return (
               <>
                 <tr key={index}>
                   {Object.entries(item).map(([property, value]) => (
-                    <td key={property} className='text-clip overflow-x-hidden whitespace-nowrap border border-gray-400 text-center font-light py-1.5 text-[#333] text-sm'>{value.length > 12 ? shorten(value) : value}</td>
+                    <td key={property} className={`text-clip overflow-x-hidden whitespace-nowrap border border-gray-400 text-center font-light py-1.5 text-sm ${value === lastKeyValuePair[1] ? 'text-green-500' : 'text-[#333]'}`}>{value.length > 12 ? shorten(value) : value}</td>
                   ))}
                 </tr>
               </>

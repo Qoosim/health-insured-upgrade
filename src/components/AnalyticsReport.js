@@ -23,7 +23,7 @@ const AnalyticsReport = () => {
   const [index, setIndex] = useState(0)
 
   const tabs = [
-    <ActiveEnrollees />,
+    <ActiveEnrollees />, , , , ,
     <Payment />
   ]
 
