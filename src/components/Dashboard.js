@@ -14,10 +14,8 @@ import HamburgerIcon from '../../public/assets/hamburger_icon.png';
 const Dashboard = () => {
   const [selected, setSelected] = useState(undefined);
   const [open, setOpen] = useState(false);
-  const [isActive, setIsActive] = useState(false)
+ 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const activeItemStyle = isActive ? "text-custom-white" : "text-custom-left-panel";
 
   const item = selected ? (
     <SelectedItem selected={selected} />
@@ -39,7 +37,6 @@ const Dashboard = () => {
               height={40}
               alt='Close Icon'
               className='sm:hidden absolute top-7 right-6 text-slate-300 z-50'
-              // onClick={toggleMenu}
             />
           ) : (
             <Image
@@ -48,7 +45,6 @@ const Dashboard = () => {
               height={30}
               alt='Hamburger Icon'
               className='sm:hidden absolute top-7 right-6'
-              // onClick={toggleMenu}
             />
           )}
         </div>

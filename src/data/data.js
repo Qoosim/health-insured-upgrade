@@ -1,4 +1,8 @@
 import cardIcon from '../../public/assets/card-icon.svg';
+import AnalyticsNotActive from '../../public/assets/analytics-not-active.svg'
+import AnalyticsActive from '../../public/assets/analytics-active.svg'
+import DashboardNotActive from '../../public/assets/dashboard-not-active.svg'
+import DashboardActive from '../../public/assets/dashboard-active.svg'
 
 export const menuList = [
   {
@@ -300,4 +304,19 @@ export const tabTexts = [
   " Family",
   "Agency",
   "Payment"
+]
+
+export const panels = [
+  {
+    url: "dashboard",
+    iconActive: DashboardActive,
+    iconNotActive: DashboardNotActive,
+    text: "Dashboard"
+  },
+  {
+    url: "analytics",
+    iconActive: AnalyticsActive,
+    iconNotActive: AnalyticsNotActive,
+    text: "Analytics & Report"
+  }
 ]
