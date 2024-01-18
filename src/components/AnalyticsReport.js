@@ -19,7 +19,6 @@ import Popup from './Popup';
 const AnalyticsReport = () => {
   const [selected, setSelected] = useState(undefined);
   const [open, setOpen] = useState(false);
-  const [isActive, setIsActive] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [index, setIndex] = useState(0)
   const [popupButton, setPopupButton] = useState(false)
@@ -123,6 +122,7 @@ const AnalyticsReport = () => {
             <button
               className="flex w-full items-center justify-between bg-[#eee] py-3 px-4 gap-2"
               type="button"
+              onClick={() => setPopupButton((prev) => !prev)}
             >
               <Image
                 src={ExportIcon}
@@ -130,7 +130,7 @@ const AnalyticsReport = () => {
                 height={20}
                 alt='Download Icon'
               />
-              <span onClick={() => setPopupButton((prev) => !prev)}>Export/Download</span>
+              <span>Export/Download</span>
             </button>
           </div>
         </div>
