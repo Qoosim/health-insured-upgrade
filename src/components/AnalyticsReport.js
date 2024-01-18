@@ -12,6 +12,8 @@ import HamburgerIcon from '../../public/assets/hamburger_icon.png';
 import ActiveEnrollees from './ActiveEnrollees';
 import Payment from './Payment';
 import SelectedItem from './SelectedItem';
+import ExportData from './ExportData';
+import Popup from './Popup';
 
 
 const AnalyticsReport = () => {
@@ -20,6 +22,7 @@ const AnalyticsReport = () => {
   const [isActive, setIsActive] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [index, setIndex] = useState(0)
+  const [popupButton, setPopupButton] = useState(false)
 
   const tabs = [
     <ActiveEnrollees />, , , , ,
@@ -35,6 +38,8 @@ const AnalyticsReport = () => {
   );
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev)
+
+  const closeModal = () => setPopupButton((prev) => !prev)
 
   return (
     <main className='py-8'>
@@ -125,7 +130,7 @@ const AnalyticsReport = () => {
                 height={20}
                 alt='Download Icon'
               />
-              <span>Export/Download</span>
+              <span onClick={() => setPopupButton((prev) => !prev)}>Export/Download</span>
             </button>
           </div>
         </div>
@@ -147,6 +152,11 @@ const AnalyticsReport = () => {
         </div>
         {tabs[index]}
       </section>
+      <div>
+        <Popup trigger={popupButton}>
+          <ExportData closeModal={closeModal} />
+        </Popup>
+      </div>
     </main>
   );
 };
