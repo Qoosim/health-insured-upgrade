@@ -19,7 +19,6 @@ const AnalyticsReport = () => {
   const [open, setOpen] = useState(false);
   const [isActive, setIsActive] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [toggle, setToggle] = useState(false)
   const [index, setIndex] = useState(0)
 
   const tabs = [
@@ -27,12 +26,7 @@ const AnalyticsReport = () => {
     <Payment />
   ]
 
-  const handleTabClick = (clickIndex) => {
-    setIndex(clickIndex)
-    setToggle(true)
-  }
-
-  const activeItemStyle = isActive ? "text-custom-white" : "text-custom-left-panel";
+  const handleTabClick = (clickIndex) => setIndex(clickIndex)
 
   const item = selected ? (
     <SelectedItem selected={selected} />
@@ -142,7 +136,7 @@ const AnalyticsReport = () => {
             {tabTexts?.map((tabItem, tabIndex) => (
               <li
                 key={tabIndex}
-                className={`${index === tabIndex ? 'bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer outline outline-1 outline-green-500 flex justify-center items-center' : 'bg-[#1AA3A10D] px-5 py-2 rounded-3xl cursor-pointer flex justify-center items-center'
+                className={`${index === tabIndex ? 'bg-[#1AA3A10D] text-green-600 flex justify-center items-center px-6 sm:py-2 rounded-2xl sm:rounded-3xl cursor-pointer outline outline-1 outline-green-500' : 'bg-[#1AA3A10D] flex justify-between items-center px-6 sm:py-2 rounded-2xl sm:rounded-3xl cursor-pointer'
                   }`}
                 onClick={() => handleTabClick(tabIndex)}
               >
