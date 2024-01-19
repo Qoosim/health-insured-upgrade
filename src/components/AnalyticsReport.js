@@ -102,9 +102,9 @@ const AnalyticsReport = () => {
               {item}
               <Image src={ArrowDown} alt="Dropdown Icon" />
             </button>
-            <ul className={`${open ? "block absolute top-full left-0" : "hidden"}`}>
+            <ul className={`${open ? "block absolute top-full left-0 bg-white rounded-br-lg rounded-bl-lg w-full py-5 border border-slate-200" : "hidden"}`}>
               {menuList.map((menuItem) => (
-                <li key={menuItem.text}>
+                <li key={menuItem.text} className='hover:bg-slate-200 py-1'>
                   <button
                     type="button"
                     onClick={() => {
