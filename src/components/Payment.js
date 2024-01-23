@@ -4,7 +4,7 @@ import { shorten } from "./helper/shorten";
 const Payment = () => {
   return (
     <div>
-      <table className='table-fixed my-5 border-separate border-spacing-y-2 border-spacing-x-0.5'>
+      <table className='table-fixed my-5 border-separate border-spacing-y-2 border-spacing-x-0.5 overflow-x'>
         <thead className='mb-4'>
           <tr className='text-xs'>
             {paymentHeader?.map((item, index) => (

@@ -2,9 +2,9 @@ import Image from 'next/image'
 import CloseBtn from '../../public/assets/close-btn.png'
 import DateRangePicker from './DateRangePicker'
 
-const ExportData = ({closeModal }) => {
+const ExportData = ({ closeModal }) => {
   return (
-    <section className='max-w-xl mx-auto flex flex-col gap-6 bg-white shadow-xl rounded-lg border'>
+    <section className='max-w-xl mx-auto flex flex-col gap-6 bg-white shadow-xl rounded-2xl border'>
       <div className='border-b-2'>
         <div className="relative p-7">
           <h1 className='text-xl text-gray-900 font-semibold text-center'>Export Data</h1>
